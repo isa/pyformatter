@@ -1,5 +1,5 @@
 from os import path
-from formatter.ext.json import JsonPrinter
+from pyformatter.ext.json import JsonPrinter
 
 class Printer():
    def __init__(self, file_name):
