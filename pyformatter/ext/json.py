@@ -3,7 +3,7 @@ import simplejson as json
 class JsonPrinter():
    options = {
       'sort_keys': False,
-      'indent': 4
+      'indent': 3
    }
 
    def __init__(self, text):
