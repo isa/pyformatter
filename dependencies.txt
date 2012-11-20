@@ -1,3 +1,4 @@
 simplejson
+Pygments
 nose
 mockito

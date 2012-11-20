@@ -8,8 +8,7 @@ class Printer():
 
    def pretty_print(self, options = {}):
       ext = path.splitext(self.file_name)[1]
-
-      if ext is '.json':
+      if ext == '.json':
          return JsonPrinter(self.text).dump(options)
 
       return self.text
