@@ -7,7 +7,7 @@ class JsonPrinter():
    }
 
    def __init__(self, text):
-      self.text = text
+      self.text = ''.join(text)
 
    def dump(self, options = {}):
       self.options.update(options)
