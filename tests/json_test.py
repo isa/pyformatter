@@ -2,7 +2,6 @@ from pyformatter.ext.json import JsonPrinter
 from unittest import TestCase
 
 class JsonPrinterTest(TestCase):
-
    def test_dump_should_have_new_lines_when_only_one_pair(self):
       code = '{"key": "value"}'
       json_printer = JsonPrinter(code)

@@ -2,7 +2,6 @@ from pyformatter.ext.python import PythonPrinter
 from unittest import TestCase
 
 class PythonPrinterTest(TestCase):
-
    def test_dump_should_indent_with_three_spaces(self):
       three_space = "   "
       lines = ['def method():', ' a_statement']
