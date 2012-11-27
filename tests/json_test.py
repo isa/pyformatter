@@ -2,6 +2,7 @@ from pyformatter.ext.json import JsonPrinter
 from unittest import TestCase
 
 class JsonPrinterTest(TestCase):
+
    def test_dump_should_have_new_lines_when_only_one_pair(self):
       code = '{"key": "value"}'
       json_printer = JsonPrinter(code)
@@ -30,9 +31,9 @@ class JsonPrinterTest(TestCase):
       code = '{"key": "value"}'
       options = {'indent': 4}
       expected_number_of_indentation = 1
-      json_printer = JsonPrinter(code)
+      json_printer = JsonPrinter(code, options)
 
-      actual = json_printer.dump(options)
+      actual = json_printer.dump()
       self.assertTrue(actual.count(four_space) is expected_number_of_indentation)
 
    def test_dump_should_indent_with_three_spaces_when_more_than_one_pair(self):
@@ -57,7 +58,7 @@ class JsonPrinterTest(TestCase):
       options = {'sort_keys': True}
       code = '{"zzz": "value1", "aaa": "value2"}'
       first_key_position = len('{\n   "') + 1
-      json_printer = JsonPrinter(code)
+      json_printer = JsonPrinter(code, options)
 
-      actual = json_printer.dump(options)
+      actual = json_printer.dump()
       self.assertTrue(actual.find('aaa') is first_key_position)

@@ -8,16 +8,16 @@ class PythonPrinter():
       'indent': 3
    }
 
-   def __init__(self, text):
+   def __init__(self, lines, options = {}):
+      self.options.update(options)
       self.find_stmt = 1  # next token begins a fresh stmt?
       self.lines = [None]
-      self.lines.extend(text)
+      self.lines.extend(lines)
       self.index = 1  # index into self.lines of next line
       self.indent_level = 0
       self.stats = []
 
-   def dump(self, options = {}):
-      self.options.update(options)
+   def dump(self):
       tokenize.tokenize(self.get_line, self.token_eater)
       # Remove trailing empty lines.
       lines = self.lines
