@@ -17,14 +17,15 @@ class PythonPrinter():
       self.indent_level = 0
       self.stats = []
 
-   def dump(self):
-      tokenize.tokenize(self.get_line, self.token_eater)
-      # Remove trailing empty lines.
+   def remove_trailing_empty_lines(self):
       lines = self.lines
       while lines and lines[-1] == "\n":
          lines.pop()
+      return lines
 
-      # Sentinel.
+   def dump(self):
+      tokenize.tokenize(self.get_line, self.token_eater)
+      lines = self.remove_trailing_empty_lines()
       stats = self.stats
       stats.append((len(lines), 0))
       # Map count of leading spaces to # we want.
